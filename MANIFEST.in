@@ -1,0 +1,2 @@
+# Include the motorcycle maintence database
+recursive-include ext/moto-maintenance-db *.json
