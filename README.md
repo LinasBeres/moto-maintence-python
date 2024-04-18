@@ -1,1 +1,1 @@
-# moto-maintence-querry-python
+# moto-maintence-python
