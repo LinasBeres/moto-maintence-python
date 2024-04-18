@@ -4,3 +4,17 @@ requires = [
   "wheel"
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyMotoMaintence"
+readme = "README.md"
+authors = [{name = "Linas Beresna & contributors", email = "linas_beresna@sfu.ca"}]
+dynamic = ["version", "description"]
+
+# [tool.setuptools]
+# include-package-data = true
+
+
+# [tool.setuptools.package-data]
+# "pyMotoMaintence.moto-maintence-db" = ["*.json"]
+
