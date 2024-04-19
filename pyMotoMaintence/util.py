@@ -29,7 +29,7 @@ def motorcycleTypeExists(motorcycleMake: str, motorcycleType: str) -> bool:
 
     return False
 
-def loadMotorcycle(motorcycleMake: str, motorcycleType: str, safe=True) -> dict:
+def loadMotorcycleMaintence(motorcycleMake: str, motorcycleType: str, safe=True) -> dict:
     outDict = {}
 
     if safe:
@@ -40,14 +40,14 @@ def loadMotorcycle(motorcycleMake: str, motorcycleType: str, safe=True) -> dict:
             print(f"Warning: motorcycle type '{motorcycleType}' doesn't exist!")
             return outDict
 
-    makeDatabase = f'{_motoDatabase}.{motorcycleMake}.{motorcycleType}.json'
+    makeDatabase = f'{_motoDatabase}.{motorcycleMake}'
 
-    with files(makeDatabase).open('r') as fl:
+    with files(makeDatabase).joinpath(f'{motorcycleType}.json').open('r') as fl:
         outDict = json.load(fl)
 
     return outDict
 
-def loadMotorcycles(motorcycles: dict, safe=True) -> dict:
+def loadMotorcycleMaintences(motorcycles: dict, safe=True) -> dict:
     motoDict = {}
 
     for motoMake, motoType in motorcycles.items():
