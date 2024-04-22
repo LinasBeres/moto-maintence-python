@@ -1,7 +1,7 @@
 [build-system]
 requires = [
   "setuptools>=42",
-  "wheel"
+  "wheel",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -10,6 +10,10 @@ name = "pyMotoMaintence"
 readme = "README.md"
 authors = [{name = "Linas Beresna & contributors", email = "linas_beresna@sfu.ca"}]
 dynamic = ["version", "description"]
+
+dependencies = [
+  "jsonschema"
+]
 
 # [tool.setuptools]
 # include-package-data = true

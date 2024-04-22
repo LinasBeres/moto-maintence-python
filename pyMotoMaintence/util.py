@@ -3,7 +3,11 @@ import json
 from pathlib import Path
 from importlib.resources import files
 
+from jsonschema import validate
+
 _motoDatabase = 'pyMotoMaintence.moto-maintenance-db.db'
+_motoSchema = 'pyMotoMaintence.moto-maintenance-db.schema'
+_maintenceSchema = 'maintence.schema.json'
 
 def iterMotorcycleMakes() -> str:
     for resource in files(_motoDatabase).iterdir():
@@ -54,3 +58,27 @@ def loadMotorcycleMaintences(motorcycles: dict, safe=True) -> dict:
         motoDict[motoType] = loadMotorcycle(motoMake, motoType, safe)
 
     return motoDict
+
+def validateMotorcycle(motorcycle: dict) -> bool:
+    with files(_motoSchema).joinpath(_maintenceSchema).open('r') as fl:
+        schema = json.load(fl)
+
+    try:
+        validate(instance=motorcycle, schema=schema)
+        return True
+    except ValidationError as err:
+        print(err)
+        return False
+
+def storeMotorcycle(motorcycle: dict, outFile="") -> bool:
+    if outFile == '':
+        outFile = f'{motorcycle["model"]}_{motorcycle["years"]}.json'
+
+    if not validateMotorcycle(motorcycle):
+        print("not valid motorcycle")
+        return False
+
+    with open(outFile, 'w', encoding='utf-8') as f:
+        json.dump(motorcycle, f, ensure_ascii=False, indent=4)
+
+    return True
