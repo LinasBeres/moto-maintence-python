@@ -35,7 +35,7 @@ def addTorqueValues(motorcycle: dict) -> dict:
         torque = {}
         torque[key] = { 'newtonMetre': newtonMetre, 'footPound': footPound }
 
-        agree = input(f'Torque to add: {torque} (y/n)')
+        agree = input(f'Torque to add: {torque} (y/n): ')
 
         if agree != 'n':
             motorcycle['torque_values'][key] = torque[key]
