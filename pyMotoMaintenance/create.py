@@ -1,6 +1,6 @@
 import json
 
-from pyMotoMaintence.util import storeMotorcycle, validateMotorcycle, motorcycleMakeExists, motorcycleTypeExists
+from pyMotoMaintenance.util import storeMotorcycle, validateMotorcycle, motorcycleMakeExists, motorcycleTypeExists
 
 def inputFloat(prompt):
     while True:
