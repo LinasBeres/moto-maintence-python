@@ -5,9 +5,9 @@ from importlib.resources import files
 
 from jsonschema import validate
 
-_motoDatabase = 'pyMotoMaintence.moto-maintenance-db.db'
-_motoSchema = 'pyMotoMaintence.moto-maintenance-db.schema'
-_maintenceSchema = 'maintence.schema.json'
+_motoDatabase = 'pyMotoMaintenance.moto-maintenance-db.db'
+_motoSchema = 'pyMotoMaintenance.moto-maintenance-db.schema'
+_maintenanceSchema = 'maintenance.schema.json'
 
 def iterMotorcycleMakes() -> str:
     for resource in files(_motoDatabase).iterdir():
@@ -33,7 +33,7 @@ def motorcycleTypeExists(motorcycleMake: str, motorcycleType: str) -> bool:
 
     return False
 
-def loadMotorcycleMaintence(motorcycleMake: str, motorcycleType: str, safe=True) -> dict:
+def loadMotorcycleMaintenance(motorcycleMake: str, motorcycleType: str, safe=True) -> dict:
     outDict = {}
 
     if safe:
@@ -51,7 +51,7 @@ def loadMotorcycleMaintence(motorcycleMake: str, motorcycleType: str, safe=True)
 
     return outDict
 
-def loadMotorcycleMaintences(motorcycles: dict, safe=True) -> dict:
+def loadMotorcycleMaintenances(motorcycles: dict, safe=True) -> dict:
     motoDict = {}
 
     for motoMake, motoType in motorcycles.items():
@@ -60,7 +60,7 @@ def loadMotorcycleMaintences(motorcycles: dict, safe=True) -> dict:
     return motoDict
 
 def validateMotorcycle(motorcycle: dict) -> bool:
-    with files(_motoSchema).joinpath(_maintenceSchema).open('r') as fl:
+    with files(_motoSchema).joinpath(_maintenanceSchema).open('r') as fl:
         schema = json.load(fl)
 
     try:

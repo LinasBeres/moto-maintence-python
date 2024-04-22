@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyMotoMaintence"
+name = "pyMotoMaintenance"
 readme = "README.md"
 authors = [{name = "Linas Beresna & contributors", email = "linas_beresna@sfu.ca"}]
 dynamic = ["version", "description"]
@@ -20,5 +20,5 @@ dependencies = [
 
 
 # [tool.setuptools.package-data]
-# "pyMotoMaintence.moto-maintence-db" = ["*.json"]
+# "pyMotoMaintenance.moto-maintenance-db" = ["*.json"]
 
