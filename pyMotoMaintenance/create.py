@@ -41,8 +41,8 @@ def addTorqueValues(motorcycle: dict) -> dict:
 
         if agree != 'n':
             motorcycle['torque_values'][key] = torque[key]
+            print(f'Added: {torque}')
 
-        print(f'Added: {torque}')
 
         key = input('Enter torque input name: ')
         key = key.lower().strip().replace(' ', '_')
