@@ -17,11 +17,13 @@ def createMotorcycle():
 def addTorqueValues(motorcycle: dict) -> dict:
 
     key = input('Enter torque input name: ')
-    key = key.replace(' ', '_')
+    key = key.lower().strip().replace(' ', '_')
 
     while key != '':
         if key in motorcycle['torque_values']:
             print(f'torque {key} already in motorcycle as: {motorcycle["torque_values"][key]}')
+            key = input('Enter torque input name: ')
+            key = key.lower().strip().replace(' ', '_')
             continue
 
         newtonMetre = inputFloat('Enter Newton-metre: ')
@@ -40,8 +42,10 @@ def addTorqueValues(motorcycle: dict) -> dict:
         if agree != 'n':
             motorcycle['torque_values'][key] = torque[key]
 
+        print(f'Added: {torque}')
+
         key = input('Enter torque input name: ')
-        key = key.replace(' ', '_')
+        key = key.lower().strip().replace(' ', '_')
 
 
     return motorcycle
