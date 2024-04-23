@@ -12,7 +12,8 @@ authors = [{name = "Linas Beresna & contributors", email = "linas_beresna@sfu.ca
 dynamic = ["version", "description"]
 
 dependencies = [
-  "jsonschema"
+  "jsonschema",
+  "rapidfuzz"
 ]
 
 # [tool.setuptools]
