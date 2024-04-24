@@ -1,8 +1,8 @@
 import json
 
-from pyMotoMaintenance.util import storeMotorcycle, validateMotorcycle, motorcycleMakeExists, motorcycleTypeExists
+from motomaintence.util import store_motorcycle, validate_motorcycle, motorcycle_make_exists, motorcycle_type_exists
 
-def inputFloat(prompt):
+def input_float(prompt):
 	while True:
 		try:
 			return float(input(prompt))
@@ -10,10 +10,10 @@ def inputFloat(prompt):
 			print('That is not a valid number.')
 
 
-def createMotorcycle():
+def create_motorcycle():
 	pass
 
-def addTorqueValues(motorcycle: dict) -> dict:
+def add_torque_values(motorcycle: dict) -> dict:
 
 	key = input('Enter torque input name: ')
 	key = key.lower().strip().replace(' ', '_')
@@ -25,9 +25,9 @@ def addTorqueValues(motorcycle: dict) -> dict:
 			key = key.lower().strip().replace(' ', '_')
 			continue
 
-		newtonMetre = inputFloat('Enter Newton-metre: ')
+		newtonMetre = input_float('Enter Newton-metre: ')
 
-		footPound = inputFloat('Enter foot-pound: ')
+		footPound = input_float('Enter foot-pound: ')
 
 		torque = {}
 		torque[key] = { 'newtonMetre': newtonMetre, 'footPound': footPound }

@@ -1,2 +1,2 @@
 # Include the motorcycle maintenance database
-recursive-include pyMotoMaintence/moto-maintenance-db *.json
+recursive-include motomaintenance/moto-maintenance-db *.json

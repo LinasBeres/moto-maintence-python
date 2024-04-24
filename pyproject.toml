@@ -6,7 +6,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pyMotoMaintenance"
+name = "motomaintenance"
 readme = "README.md"
 authors = [{name = "Linas Beresna & contributors", email = "linas_beresna@sfu.ca"}]
 dynamic = ["version", "description"]
